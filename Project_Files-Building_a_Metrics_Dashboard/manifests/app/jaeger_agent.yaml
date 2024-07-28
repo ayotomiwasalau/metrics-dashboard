@@ -1,0 +1,27 @@
+apiVersion: jaegertracing.io/v1
+kind: Jaeger
+metadata:
+  name: simplest
+  namespace: observability
+spec:
+  agent:
+    strategy: DaemonSet
+
+
+# apiVersion: jaegertracing.io/v1
+# kind: Jaeger
+# metadata:
+#   name: simplest
+
+# apiVersion: jaegertracing.io/v1
+# kind: Jaeger
+# metadata:
+#   name: simplest
+# spec:
+#   strategy: allInOne
+#   allInOne:
+#     options:
+#       sampling:
+#         default:
+#           type: const
+#           param: 1
