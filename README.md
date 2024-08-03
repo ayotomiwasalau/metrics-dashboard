@@ -112,4 +112,18 @@ Kindly resolve the error in the `backend` application as soon as possible
 ![Alt Text](Project_Files-Building_a_Metrics_Dashboard/answer_img/dashbd1.png)
 ![Alt Text](Project_Files-Building_a_Metrics_Dashboard/answer_img/dashbd2.png)
 
+### Uptime per Month
+Uptime per month measures the percentage of time a system or service is available during a 30-day period. A 99.9% monthly uptime target allows for just under 44 minutes of downtime per month.
+### Average Response Time
+Average response time measures the time it takes for a system to respond to a request. Keeping the average response time under 300ms ensures a fast and responsive user experience.
+### Successful vs Error Responses
+The percentage of OK vs error responses indicates the reliability of a system. Aiming for 99.9% OK responses and only 0.01% errors per day demonstrates a highly stable and well-functioning system.
+### CPU Usage
+CPU usage measures the percentage of a system's processing power being utilized. Keeping the average CPU usage under 85% per month leaves headroom for handling spikes in traffic or processing.
+### Memory Usage
+Memory usage measures the percentage of a system's RAM being consumed. Maintaining average memory usage below 85% per month prevents the system from running out of memory and crashing.
+### Disk Usage
+Disk usage measures the percentage of a system's storage space being occupied. Keeping average disk usage under 75% per month allows room for growth and avoids running out of disk space.
+
+
 
