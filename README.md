@@ -54,6 +54,7 @@ Average memory usage should be less than 70% this month
 ## Tracing our Flask App
 *TODO:*  We will create a Jaeger span to measure the processes on the backend. Once you fill in the span, provide a screenshot of it here. Also provide a (screenshot) sample Python file containing a trace and span code used to perform Jaeger traces on the backend service.
 ![Alt Text](Project_Files-Building_a_Metrics_Dashboard/answer_img/jaeger_ui.png)
+![Alt Text](Project_Files-Building_a_Metrics_Dashboard/answer_img/error_tracer.png)
 ![Alt Text](Project_Files-Building_a_Metrics_Dashboard/answer_img/j_tracing1.png)
 ![Alt Text](Project_Files-Building_a_Metrics_Dashboard/answer_img/j_tracing2.png)
 ![Alt Text](Project_Files-Building_a_Metrics_Dashboard/answer_img/j_tracing3.png)
@@ -100,12 +101,18 @@ Kindly resolve the error in the `backend` application as soon as possible
 ## Building KPIs for our plan
 *TODO*: Now that we have our SLIs and SLOs, create a list of 2-3 KPIs to accurately measure these metrics as well as a description of why those KPIs were chosen. We will make a dashboard for this, but first write them down here.
 
-- 99.9% uptime per month
+- 99.9% uptime per month 
+This metric ensures high availability, allowing for minimal downtime and maintaining user trust in critical services.
 - average response time in a month will not exceed < 300ms
+Setting this threshold guarantees a fast user experience, as responses within 300ms are generally perceived as immediate and engaging.
 - 99.9% ok responses and 0.01% error response per minute
+This metric emphasizes reliability, aiming for a high success rate in user requests to minimize disruptions and maintain operational efficiency.
 - average cpu usage in a month should not exceed 85%
+Limiting CPU usage to 85% prevents system overload, ensuring sufficient processing power for peak demands and maintaining performance.
 - average memory usage in a month should not exceed 85%
+This threshold ensures the system has enough memory resources to handle concurrent processes, preventing crashes and slowdowns.
 - average disk usage in a month should not exceed 75%
+Keeping disk usage under 75% allows for data growth and system operations, reducing the risk of running out of storage and ensuring efficient performance.
 
 ## Final Dashboard
 *TODO*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
