@@ -4,8 +4,9 @@
 
 *TODO:* run `kubectl` command to show the running pods and services for all components. Take a screenshot of the output and include it here to verify the installation
 
-## Setup the Jaeger and Prometheus source
+## Setup the Jaeger and Prometheus sourcePanel Title
 *TODO:* Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
+
 
 ## Create a Basic Dashboard
 *TODO:* Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
@@ -13,8 +14,29 @@
 ## Describe SLO/SLI
 *TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
 
+ANSWER: SLOs are specified maximum or minimum targets that an SLI metric should not exceed or not fall below within a given period. Ex. the average  uptime(metric) shld be 99.9% within the month May or 98% of the average request response time shld be under 10ms within the year is an SLO while the measure of the actual metrics, say the system had a 95% uptime within a that month or 93% of requests within the year were under 10ms. In essence the actual score is the SLI
+
 ## Creating SLI metrics.
 *TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
+
+General metrics
+Latency - 
+the slo wld be to get a 99% average response time less than 15ms within the month - This refers to the time it takes for a request to get response.
+
+Availability - 
+This refers to the readiness of a system. This could be the percentage of 2x or 3x responses out of the total responses. the slo is to get 99.9% ok responses in a month
+
+Uptime - 
+The refers to the amount of time the system is up. the sli would be to try to get 99.9% uptime in a month
+
+Failures
+This sli would try to get 0.01% percentage amount of 5x or 4x errors in a month
+
+CPU, Memory and Network capacity
+
+Average CPU usage should be less than 70% this month
+Average memory usage should be less than 70% this month
+
 
 ## Create a Dashboard to measure our SLIs
 *TODO:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
@@ -46,8 +68,21 @@ Description:
 ## Creating SLIs and SLOs
 *TODO:* We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name four SLIs that you would use to measure the success of this SLO.
 
+- average uptime per month
+- no of successful requests per minute 
+- no of error requests per minute
+- average response duration per month
+- average cpu, memory, disk and network usage per month
+
 ## Building KPIs for our plan
 *TODO*: Now that we have our SLIs and SLOs, create a list of 2-3 KPIs to accurately measure these metrics as well as a description of why those KPIs were chosen. We will make a dashboard for this, but first write them down here.
+
+- 99.9% uptime per month
+- average response time in a month will not exceed < 300ms
+- 99.9% ok responses and 0.01% error response per minute
+- average cpu usage in a month should not exceed 85%
+- average memory usage in a month should not exceed 85%
+- average disk usage in a month should not exceed 75%
 
 ## Final Dashboard
 *TODO*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  

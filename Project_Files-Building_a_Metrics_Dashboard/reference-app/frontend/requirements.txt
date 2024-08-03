@@ -2,3 +2,8 @@ Flask
 requests
 pylint
 gunicorn
+prometheus-client
+flask-cors
+Flask-OpenTracing
+prometheus-flask-exporter
+jaeger-client

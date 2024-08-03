@@ -1,9 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-app
-  annotations: 
-    "sidecar.jaegertracing.io/inject": "true"
+  annotations:
+    sidecar.jaegertracing.io/inject: "true"
+    prometheus.io/scrape: "true"
+    prometheus.io/path: /metrics
+    prometheus.io/port: frontendport
+  labels:
+    name: frontend
+    release: prometheus
+  name: frontend
 spec:
   replicas: 3
   selector:
@@ -15,23 +21,33 @@ spec:
         app: frontend
     spec:
       containers:
-      - name: frontend
-        # We advise you to build, push and use your own image, instead of using instructor's image.
+      - env:
+        - name: JAEGER_AGENT_HOST
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
         image: tomiwasalau01/frontend-service:latest
         imagePullPolicy: Always
+        name: frontend
         ports:
-        - containerPort: 8080
+        - name: frontendport
+          containerPort: 8080
+          protocol: TCP
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-service
+  name: frontend
+  labels:
+    app: frontend
 spec:
   selector:
     app: frontend
   ports:
-    - port: 8080
-      targetPort: 8080
+    - name: frontend
+      protocol: TCP
+      port: 8080
+      targetPort: frontendport
   type: LoadBalancer
 
 ---
@@ -39,24 +55,19 @@ spec:
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  annotations:
-    sidecar.jaegertracing.io/inject: "true"
-    prometheus.io/scrape: "true"
-    prometheus.io/path: /metrics
-    prometheus.io/port: frontend
+  name: frontend
+  namespace: monitoring
   labels:
     app: frontend
     release: prometheus
-  name: frontend
-  namespace: monitoring
 spec:
-  endpoints:
-    - path: /metrics
-      port: frontend
-      interval: 15s
-  namespaceSelector:
-    matchNames:
-      - default
   selector:
     matchLabels:
       app: frontend
+  endpoints:
+  - port: frontend
+    path: /metrics
+    interval: 15s
+  namespaceSelector:
+    matchNames:
+    - default

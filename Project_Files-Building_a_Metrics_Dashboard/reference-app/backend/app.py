@@ -5,7 +5,7 @@ import pymongo
 from flask_pymongo import PyMongo
 from jaeger_client.metrics.prometheus import PrometheusMetricsFactory
 from prometheus_flask_exporter import PrometheusMetrics
-
+import requests
 
 app = Flask(__name__)
 
@@ -101,3 +101,6 @@ def healthcheck():
 
 if __name__ == "__main__":
     app.run()
+
+#add child span
+#build graphana dashboard
