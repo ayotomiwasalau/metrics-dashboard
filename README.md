@@ -121,7 +121,7 @@ Keeping disk usage under 75% allows for data growth and system operations, reduc
 
 ### Uptime per Month
 Uptime per month measures the percentage of time a system or service is available during a 30-day period. A 99.9% monthly uptime target allows for just under 44 minutes of downtime per month.
-### Average Response Time
+### Average Response Duration
 Average response time measures the time it takes for a system to respond to a request. Keeping the average response time under 300ms ensures a fast and responsive user experience.
 ### Successful vs Error Responses
 The percentage of OK vs error responses indicates the reliability of a system. Aiming for 99.9% OK responses and only 0.01% errors per day demonstrates a highly stable and well-functioning system.
