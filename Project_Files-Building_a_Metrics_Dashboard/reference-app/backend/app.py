@@ -102,5 +102,4 @@ def healthcheck():
 if __name__ == "__main__":
     app.run()
 
-#add child span
-#build graphana dashboard
+
